@@ -11,9 +11,10 @@ import { RecipeService } from "./recipes/recipe.service";
 import { RecipesModule } from "./recipes/recipes.module";
 import { ShoppingListModule } from "./shopping-list/shoppping-list.module";
 import { SharedModule } from "./shared/shared.module";
+import { AuthComponent } from "./auth/auth.component";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, AuthComponent],
   imports: [
     BrowserModule,
     FormsModule,
