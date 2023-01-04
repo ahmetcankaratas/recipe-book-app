@@ -1,16 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { DropdownDirective } from "./dropdown.directive";
+import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
 
 @NgModule({
-    declarations: [
-        DropdownDirective
-    ],
-    imports:[CommonModule],
-    exports: [
-        DropdownDirective,
-        CommonModule
-    ]
-
+  declarations: [DropdownDirective, LoadingSpinnerComponent],
+  imports: [CommonModule],
+  exports: [DropdownDirective, CommonModule, LoadingSpinnerComponent],
 })
 export class SharedModule {}
