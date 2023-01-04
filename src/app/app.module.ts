@@ -14,9 +14,16 @@ import { SharedModule } from "./shared/shared.module";
 import { AuthComponent } from "./auth/auth.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import { AlertComponent } from "./shared/alert/alert.component";
+import { PlaceholderDirective } from "./shared/placeholder/placeholder.directive";
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AuthComponent, AlertComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    AuthComponent,
+    AlertComponent,
+    PlaceholderDirective,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -37,5 +44,6 @@ import { AlertComponent } from "./shared/alert/alert.component";
     },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [AlertComponent],
 })
 export class AppModule {}
