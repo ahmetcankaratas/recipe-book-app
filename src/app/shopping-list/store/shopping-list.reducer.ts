@@ -3,7 +3,7 @@ import { ingredient } from "../../shared/ingredient.model";
 import * as ShoppingListActions from "./shopping-list.actions";
 
 export interface AppState {
-shoppingList: State;
+  shoppingList: State;
 }
 
 export interface State {
@@ -34,42 +34,46 @@ export function shoppingListReducer(
         ingredients: [...state.ingredients, ...action.payload],
       };
     case ShoppingListActions.UPDATE_INGREDIENT:
-      const ingredient = state.ingredients[action.payload.index];
+      const ingredient = state.ingredients[state.editedIngredientIndex];
       const updatedIngredient = {
         ...ingredient,
-        ...action.payload.ingredient,
+        ...action.payload,
       };
       const updatedIngredients = [...state.ingredients];
-      updatedIngredients[action.payload.index] = updatedIngredient;
+      updatedIngredients[state.editedIngredientIndex] = updatedIngredient;
 
       return {
         ...state,
         ingredients: updatedIngredients,
+        editedIngredientIndex: -1,
+        editedIngredient: null,
       };
     case ShoppingListActions.DELETE_INGREDIENT:
       return {
         ...state,
         ingredients: state.ingredients.filter((ingredient, ingredientIndex) => {
-          return ingredientIndex !== action.payload;
+          return ingredientIndex !== state.editedIngredientIndex;
         }),
+        editedIngredientIndex: -1,
+        editedIngredient: null,
       };
 
     case ShoppingListActions.START_EDIT:
-      return{
+      return {
         ...state,
         editedIngredientIndex: action.payload,
-        editedIngredient: {...state.ingredients[action.payload]}
+        editedIngredient: { ...state.ingredients[action.payload] },
       };
 
     case ShoppingListActions.STOP_EDIT:
-      return{
+      return {
         ...state,
         editedIngredientIndex: -1,
-        editedIngredient: null
+        editedIngredient: null,
       };
 
     case ShoppingListActions.STOP_EDIT:
-      return{}
+      return {};
     default:
       return state;
   }

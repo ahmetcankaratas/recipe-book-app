@@ -6,7 +6,6 @@ import * as fromShoppingList from "../store/shopping-list.reducer";
 
 import { Subscription } from "rxjs";
 import { ingredient } from "src/app/shared/ingredient.model";
-import { ShoppingListService } from "../shopping-list.service";
 
 @Component({
   selector: "app-shopping-edit",
@@ -16,11 +15,9 @@ import { ShoppingListService } from "../shopping-list.service";
 export class ShoppingEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
-  editedItemIndex: number;
   editedItem: ingredient;
 
   constructor(
-    private shoppingListService: ShoppingListService,
     private store: Store<fromShoppingList.AppState>
   ) {}
   @ViewChild("f") slForm: NgForm;
@@ -32,8 +29,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
         if (stateData.editedIngredientIndex > -1) {
           this.editMode = true;
           this.editedItem = stateData.editedIngredient;
-          this.editedItemIndex = stateData.editedIngredientIndex;
-          this.slForm.setValue({
+            this.slForm.setValue({
             name: this.editedItem.name,
             amount: this.editedItem.amount,
           });
@@ -49,10 +45,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       //this.shoppingListService.updateIngredient(this.editedItemIndex,newIngredient);
       this.store.dispatch(
-        new ShoppingListActions.UpdateIngredient({
-          index: this.editedItemIndex,
-          ingredient: newIngredient,
-        })
+        new ShoppingListActions.UpdateIngredient(
+          newIngredient,
+        )
       );
     } else {
       // this.shoppingListService.addIngredient(newIngredient);
@@ -70,7 +65,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onDelete() {
     this.store.dispatch(
-      new ShoppingListActions.DeleteIngredient(this.editedItemIndex)
+      new ShoppingListActions.DeleteIngredient()
     );
     this.onClear();
     //this.shoppingListService.deleteIngredient(this.editedItemIndex);
