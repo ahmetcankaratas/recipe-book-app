@@ -27,9 +27,6 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
         return this.http
           .get<Recipe[]>(
             "https://recipe-book-b8e12-default-rtdb.europe-west1.firebasedatabase.app/recipes.json"
@@ -47,7 +44,5 @@ export class DataStorageService {
               this.recipeService.setRecipes(recipes);
             })
           );
-      })
-    );
   }
 }
