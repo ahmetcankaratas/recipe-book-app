@@ -15,36 +15,33 @@
           </button>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Name</label>
             <input
               type="text"
-              class="form-control"
               id="name"
               formControlName="name"
+              class="form-control"
             />
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="imagePath">Image Url</label>
+            <label for="imagePath">Image URL</label>
             <input
               type="text"
-              class="form-control"
               id="imagePath"
-              #imagePath
               formControlName="imagePath"
+              class="form-control"
+              #imagePath
             />
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xs-12">
           <img [src]="imagePath.value" class="img-responsive" />
@@ -56,23 +53,21 @@
             <label for="description">Description</label>
             <textarea
               type="text"
-              class="form-control"
               id="description"
-              rows="6"
+              class="form-control"
               formControlName="description"
-            >
-            </textarea>
+              rows="6"
+            ></textarea>
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
           <div
             class="row"
-            *ngFor="let ingredientCtrl of controls; let i = index"
+            *ngFor="let ingredientCtrl of ingredientsControls; let i = index"
             [formGroupName]="i"
-            style="margin-bottom: 10px"
+            style="margin-top: 10px"
           >
             <div class="col-xs-8">
               <input type="text" class="form-control" formControlName="name" />
