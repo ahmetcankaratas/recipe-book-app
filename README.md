@@ -1,27 +1,45 @@
-# FirstApp
+# Recipe Book App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-## Development server
+LiveURL: https://recipe-book-b8e12.web.app/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## **🔎 Technologies**
 
-## Code scaffolding
+- Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📷 Screenshots
 
-## Build
+Main Page
+<img width="1440" alt="Screen Shot 2023-01-10 at 13 49 12" src="https://user-images.githubusercontent.com/53529387/211531863-22891d31-6055-47e1-aee9-840b0cbb11b2.png">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
 
-## Running unit tests
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+A step by step guide that will tell you how to get the development environment up and running.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Clone the repository
 
-## Further help
+```
+git clone https://github.com/ahmetcankaratas/recipe-book-app
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Install dependencies
+
+```
+cd recipe-book-app
+npm install
+```
+
+- Build and run the project
+
+```
+
+ng serve
+
+```
+
+Navigate to `http://localhost:4200`
